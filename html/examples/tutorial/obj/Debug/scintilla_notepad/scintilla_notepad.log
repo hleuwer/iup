@@ -1,0 +1,33 @@
+﻿Build started 28-Jun-18 4:08:55 PM.
+     1>Project "D:\tecgraf\iup\html\examples\tutorial\scintilla_notepad\scintilla_notepad.vcxproj" on node 6 (Build target(s)).
+     1>InitializeBuildStatus:
+         Touching "..\obj\Debug\scintilla_notepad\scintill.E1563874.tlog\unsuccessfulbuild".
+       ClCompile:
+         All outputs are up-to-date.
+       ResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\bin\scintilla_notepad.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:\tecgraf\iup\lib\Debug /LIBPATH:\tecgraf\cd\lib\Debug /LIBPATH:\tecgraf\im\lib\Debug /LIBPATH:\tecgraf\iup\lib\vc12 /LIBPATH:\tecgraf\cd\lib\vc12 /LIBPATH:\tecgraf\im\lib\vc12 /LIBPATH:\tecgraf\freetype\lib\vc12 /LIBPATH:\tecgraf\zlib\lib\vc12 iupimglib.lib imm32.lib iup_scintilla.lib comctl32.lib iup.lib cd.lib iupcd.lib im.lib freetype6.lib zlib1.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"..\bin\scintilla_notepad.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\bin\scintilla_notepad.lib" /MACHINE:X86 /SAFESEH ..\obj\Debug\scintilla_notepad\iup.res
+         ..\obj\Debug\scintilla_notepad\scintilladlg_notepad.obj
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawCreateCanvasGDI referenced in function _iupdrvDrawCreateCanvas
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawKillCanvasGDI referenced in function _iupdrvDrawKillCanvas
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawFlushGDI referenced in function _iupdrvDrawFlush
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawUpdateSizeGDI referenced in function _iupdrvDrawUpdateSize
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawGetSizeGDI referenced in function _iupdrvDrawGetSize
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawLineGDI referenced in function _iupdrvDrawLine
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawRectangleGDI referenced in function _iupdrvDrawRectangle
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawArcGDI referenced in function _iupdrvDrawArc
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawPolygonGDI referenced in function _iupdrvDrawPolygon
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawTextGDI referenced in function _iupdrvDrawText
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawImageGDI referenced in function _iupdrvDrawImage
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawSetClipRectGDI referenced in function _iupdrvDrawSetClipRect
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawResetClipGDI referenced in function _iupdrvDrawResetClip
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawGetClipRectGDI referenced in function _iupdrvDrawGetClipRect
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawSelectRectGDI referenced in function _iupdrvDrawSelectRect
+     1>iup.lib(iupwin_draw_wdl.obj) : error LNK2019: unresolved external symbol _iupdrvDrawFocusRectGDI referenced in function _iupdrvDrawFocusRect
+     1>..\bin\scintilla_notepad.exe : fatal error LNK1120: 16 unresolved externals
+     1>Done Building Project "D:\tecgraf\iup\html\examples\tutorial\scintilla_notepad\scintilla_notepad.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.56
