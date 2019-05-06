@@ -30,6 +30,7 @@ endif
 
 ifdef USE_LUA53
   LUASFX = 53
+  LUA_VER = 5.3
   ifneq ($(findstring SunOS, $(TEC_UNAME)), )
     ifneq ($(findstring x86, $(TEC_UNAME)), )
       FLAGS = -std=gnu99
@@ -37,9 +38,11 @@ ifdef USE_LUA53
   endif
 else
 ifdef USE_LUA52
+  LUA_VER = 5.2
   LUASFX = 52
 else
   USE_LUA51 = Yes
+  LUA_VER = 5.1
   LUASFX = 51
 endif
 endif

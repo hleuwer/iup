@@ -97,7 +97,9 @@ static int cdfont(cdCtxCanvas *ctxcanvas, const char *type_face, int style, int 
 
   /* store in native font and manually save font parameters */
   strcpy(ctxcanvas->canvas->native_font, font);
-  strcpy(ctxcanvas->canvas->font_type_face, type_face);
+  printf("p1: %p, p2: %p\n", (void*)ctxcanvas->canvas->font_type_face, (void*) type_face);
+  if (ctxcanvas->canvas->font_type_face != type_face)
+    strcpy(ctxcanvas->canvas->font_type_face, type_face);
   ctxcanvas->canvas->font_style = style;
   ctxcanvas->canvas->font_size = size;
 

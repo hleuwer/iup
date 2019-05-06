@@ -7,4 +7,4 @@ endif
 .PHONY: do_all
 
 do_all:
-	@$(TECMAKE_CMD) 
+	@$(TECMAKE_CMD) USE_LUA_VERSION=52

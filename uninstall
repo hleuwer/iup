@@ -31,7 +31,8 @@ Remove_From_System()
 {
   rm -frv $TEC_SYSTEM_INC/$1
   rm -fv $TEC_SYSTEM_LIB/lib$1*.a
-  rm -fv $TEC_SYSTEM_LIB/lib$1*.so 
+  rm -fv $TEC_SYSTEM_LIB/lib$1*.so
+  rm -fv $TEC_SYSTEM_LIB/libiup*.dylib
   
   if [ $1 == cd ]; then
     Remove_Extra_CD

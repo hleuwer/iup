@@ -14,7 +14,8 @@ ComputeTecUname()
   TEC_SYSVERSION=`uname -r|cut -f1 -d.`
   TEC_SYSMINOR=`uname -r|cut -f2 -d.`
   TEC_SYSARCH=`uname -m`
-
+  TEC_DYLIB_EXT=so
+  
   # Fixes
   if [ $TEC_SYSNAME == SunOS ]; then
     TEC_SYSARCH=`uname -p`
@@ -39,6 +40,7 @@ ComputeTecUname()
     TEC_SYSVERSION=`sw_vers -productVersion|cut -f1 -d.`
     TEC_SYSMINOR=`sw_vers -productVersion|cut -f2 -d.`
     TEC_SYSARCH=`uname -p`
+    TEC_DYLIB_EXT=dylib
   fi
  
   if [ $TEC_SYSARCH == i686 ]; then
@@ -126,7 +128,8 @@ ComputeTecUname()
   if [ $TEC_SYSNAME == MacOS ]; then
     if [ $TEC_SYSMINOR == 5 ]; then
       if [ $TEC_SYSARCH == x86 ]; then
-        TEC_UNAME=$TEC_UNAME'x86'
+          TEC_UNAME=$TEC_UNAME'x86'
+          TEC_DYLIB_EXT = dylib
       fi
     else
       if [ $TEC_SYSMINOR == 4 ]; then
@@ -143,16 +146,19 @@ ComputeTecUname()
 ComputeSystemPaths()
 {
   if [ $TEC_SYSARCH == x64 ]; then
-    if [ -d /usr/lib64 ]; then
-      TEC_SYSTEM_LIB=/usr/lib64
+    if [ -d /usr/local/lib64 ]; then
+      TEC_SYSTEM_LIB=/usr/local/lib64
+      TEC_SYSTEM_BIN=/usr/local/bin
     else
-      TEC_SYSTEM_LIB=/usr/lib
+        TEC_SYSTEM_LIB=/usr/local/lib
+        TEC_SYSTEM_BIN=/usr/local/bin
     fi
   else
-    TEC_SYSTEM_LIB=/usr/lib
+    TEC_SYSTEM_LIB=/usr/local/lib
+    TEC_SYSTEM_BIN=/usr/local/bin
   fi
 
-  TEC_SYSTEM_INC=/usr/include
+  TEC_SYSTEM_INC=/usr/local/include
   
   if [ $TEC_SYSNAME == Haiku ]; then
     TEC_SYSTEM_LIB=`finddir B_SYSTEM_LIB_DIRECTORY`
@@ -160,6 +166,7 @@ ComputeSystemPaths()
   fi
 
   TEC_LUA_LIB=$TEC_SYSTEM_LIB/lua/$LUA_VER
+  TEC_LUA_INC=$TEC_SYSTEM_INC/lua/$LUA_VER
 }
 
 ComputeLuaVersion()
@@ -181,8 +188,8 @@ ComputeLuaVersion()
 
   # Default Lua version  
   if [ -z "$LUA_VER" ]; then
-    LUA_VER=5.1
-    LUA_SFX=51
+    LUA_VER=5.2
+    LUA_SFX=52
   fi
 }
 
@@ -196,4 +203,12 @@ PrintInfo()
   echo 'TEC_SYSARCH='$TEC_SYSARCH
   echo 'TEC_SYSTEM_LIB='$TEC_SYSTEM_LIB
   echo 'TEC_SYSTEM_INC='$TEC_SYSTEM_INC
+  echo 'TEC_UNAME='$TEC_UNAME
+  echo 'TEC_DYLIB_EXT='$TEC_DYLIB_EXT
+  echo '  Lua:'
+  echo 'TEC_LUA_LIB='$TEC_LUA_LIB
+  echo 'TEC_LUA_INC='$TEC_LUA_INC
+  echo 'LUA_PFX='$LUA_PFX
+  echo 'LUA_SFX='$LUA_SFX
+  echo 'LUA_VER='$LUA_VER
 }

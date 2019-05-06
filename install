@@ -26,19 +26,18 @@ EchoDownloadTip()
 Copy_RunTime_Extra_CD()
 {
   # Do NOT overwrite for FreeType
-  cp -fn $1libfreetype.so $TEC_SYSTEM_LIB
+  cp -fn $1libfreetype.$TEC_DYLIB_EXT $TEC_SYSTEM_LIB
   
-  cp -fv $1libpdflib.so $TEC_SYSTEM_LIB
-  cp -fv $1libftgl.so $TEC_SYSTEM_LIB
+  cp -fv $1libpdflib.$TEC_DYLIB_EXT  $TEC_SYSTEM_LIB
+  cp -fv $1libftgl.$TEC_DYLIB_EXT $TEC_SYSTEM_LIB
 }
 
 Copy_RunTime_To_System()
 {
-  cp -fv $2lib$1*.so $TEC_SYSTEM_LIB
-  
-  if [ $1 == cd ]; then
-    Copy_RunTime_Extra_CD $2
-  fi
+    cp -fv $2lib$1*.$TEC_DYLIB_EXT $TEC_SYSTEM_LIB
+    if [ $1 == cd ]; then
+        Copy_RunTime_Extra_CD $2
+    fi
 }
 
 Install_RunTime()
@@ -60,6 +59,7 @@ Install_RunTime()
 
 # From tec_uname script
 ComputeTecUname
+ComputeLuaVersion
 ComputeSystemPaths
 #PrintInfo
 
