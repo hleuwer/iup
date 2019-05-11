@@ -19,6 +19,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 #include <langinfo.h>
+#include <syslog.h>
 
 #include <gtk/gtk.h>
 
@@ -241,4 +242,41 @@ char *iupdrvGetUserName(void)
 char* iupdrvLocaleInfo(void)
 {
   return iupStrReturnStr(nl_langinfo(CODESET));
+}
+
+/**************************************************************************/
+
+
+void IupLogV(const char* type, const char* format, va_list arglist)
+{
+  int options = LOG_CONS | LOG_PID;
+  int priority = 0;
+
+  if (iupStrEqualNoCase(type, "DEBUG"))
+  {
+    priority = LOG_DEBUG;
+#ifdef LOG_PERROR
+    options |= LOG_PERROR;
+#endif
+  }
+  else if (iupStrEqualNoCase(type, "ERROR"))
+    priority = LOG_ERR;
+  else if (iupStrEqualNoCase(type, "WARNING"))
+    priority = LOG_WARNING;
+  else if (iupStrEqualNoCase(type, "INFO"))
+    priority = LOG_INFO;
+
+  openlog(NULL, options, LOG_USER);
+
+  vsyslog(priority, format, arglist);
+
+  closelog();
+}
+
+void IupLog(const char* type, const char* format, ...)
+{
+  va_list arglist;
+  va_start(arglist, format);
+  IupLogV(type, format, arglist);
+  va_end(arglist);
 }

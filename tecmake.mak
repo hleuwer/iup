@@ -1877,28 +1877,6 @@ $(UNAMES):
 	 xterm -bg black -fg lightblue -T "Tecmake: $@ ($(TARGETNAME))" -e ssh $@ $(REMOTE) $$dir $(TECMAKEFLAGS) $(MAKEFLAGS) & 2> /dev/null
 
 #---------------------------------#
-# Installation
-#---------------------------------#
-# System Variables Definitions
-INSTALL_BINDIR = /usr/local/bin
-INSTALL_LIBDIR = /usr/local/lib
-INSTALL_MODDIR = /usr/local/lib/lua/$(LUA_VER)
-.PHONY: install install-app install-slib install-dlib
-install: install-app install-slib install-dlib
-
-install-app:
-	@echo "Installing program $(APPNAME)"
-	if test -f $(TEC_SYSTEM_DIR)/bin/$(APPNAME); then cp -f $(TARGETDIR)/$(APPNAME) $(INSTALL_BINDIR); fi
-#	test -f $(TARGETDIR)/$(APPNAME) && cp -f $(TARGETDIR)/$(APPNAME) $(INSTALL_BINDIR)
-
-install-slib:
-	@echo "Installing static lib $(TARGETDLIBNAME)"
-	test -f $(TARGETDIR)/$(TARGETSLIBNAME) && cp -f $(TARGETDIR)/$(TARGETSLIBNAME) $(INSTALL_LIBDIR)
-
-install-dlib:
-	@echo "Installing dynamic lib $(TARGETDLIBNAME)"
-	if [[ $(TARGETDIR) == */Lua?? ]]; then test -f $(TARGETDIR)/$(TARGETDLIBNAME) && cp -f $(TARGETDIR)/$(TARGETDLIBNAME) $(INSTALL_MODDIR); else test -f $(TARGETDIR)/$(TARGETDLIBNAME) && cp -f $(TARGETDIR)/$(TARGETDLIBNAME) $(INSTALL_LIBDIR); fi
-#---------------------------------#
 
 .PHONY: version
 version:

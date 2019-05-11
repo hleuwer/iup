@@ -28,6 +28,7 @@ ifdef USE_LUA_VERSION
     USE_LUA53:=Yes
   endif
   ifeq ($(USE_LUA_VERSION), 52)
+    DEFINES += LUA_COMPAT_MODULE
     USE_LUA52:=Yes
   endif
   ifeq ($(USE_LUA_VERSION), 51)
@@ -36,13 +37,18 @@ ifdef USE_LUA_VERSION
 endif
 
 ifdef USE_LUA53
+  DEFINES += LUA_COMPAT_MODULE
   LUASFX = 53
+  LUA_VER = 5.3
 else
 ifdef USE_LUA52
+  DEFINES += LUA_COMPAT_MODULE
   LUASFX = 52
+  LUA_VER = 5.2
 else
   USE_LUA51 = Yes
   LUASFX = 51
+  LUA_VER = 5.1
 endif
 endif
 
