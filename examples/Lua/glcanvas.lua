@@ -1,7 +1,6 @@
 -- Example IupGLCanvas in Lua
 -- Creates a OpenGL canvas and draws a line in it.
 -- This example uses gllua binding of OpenGL to Lua.
-
 require("iuplua")
 require("iupluagl")
 require("luagl")
