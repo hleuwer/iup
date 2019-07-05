@@ -19,6 +19,7 @@ DEF_FILE = iup_plot.def
 INCLUDES = ../include ../src ../srccd
 LDIR = ../lib/$(TEC_UNAME)  
 LIBS = iup iupgl iupcd cdgl 
+#LIBS = iup iupcd
 
 DEFINES = CD_NO_OLD_INTERFACE
 

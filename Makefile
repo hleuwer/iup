@@ -5,7 +5,7 @@ endif
 .PHONY: do_all iup iupgtk iupmot iupcd iupcontrols iupgl iupglcontrols iup_plot iup_mglplot iup_scintilla iupim iupimglib ledc iupview iuplua5 iupluaconsole iupluascripter iupole iupfiledlg iupweb iuptuio iuptest clean clean-target clean-obj clean-all
 #do_all: iup iupcd iupcontrols iupgl iupglcontrols iup_plot iup_mglplot iup_scintilla iupim iupimglib $(WINLIBS) iupweb iuptuio ledc iupview iuplua5 iupluaconsole iupluascripter
 
-MODS = iup iupgtk iupcd iupcontrols iupgl iupglcontrols iup_plot iup_mglplot iup_scintilla iupim iupimglib $(WINLIBS) iuptuio ledc iupview iuplua5 iuptest
+MODS = iup iupgtk iupcd iupcontrols iupgl iupglcontrols iup_plot iup_mglplot iup_scintilla iupim iupimglib $(WINLIBS) iuptuio ledc iuplua5 iuptest iupview
 # leu: issue with linking bundle .so lib to application
 MODS_NOT_WORKING = iupluaconsole iupluascripter
 
