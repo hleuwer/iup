@@ -13,13 +13,6 @@
 #include "il.h"
 
 
-static int cells_width_cb(Ihandle *self, int p0)
-{
-  lua_State *L = iuplua_call_start(self, "width_cb");
-  lua_pushinteger(L, p0);
-  return iuplua_call(L, 1);
-}
-
 static int cells_mousemotion_cb(Ihandle *self, int p0, int p1, int p2, int p3, char * p4)
 {
   lua_State *L = iuplua_call_start(self, "mousemotion_cb");
@@ -29,6 +22,36 @@ static int cells_mousemotion_cb(Ihandle *self, int p0, int p1, int p2, int p3, c
   lua_pushinteger(L, p3);
   lua_pushstring(L, p4);
   return iuplua_call(L, 5);
+}
+
+static int cells_hspan_cb(Ihandle *self, int p0, int p1)
+{
+  lua_State *L = iuplua_call_start(self, "hspan_cb");
+  lua_pushinteger(L, p0);
+  lua_pushinteger(L, p1);
+  return iuplua_call(L, 2);
+}
+
+static int cells_scrolling_cb(Ihandle *self, int p0, int p1)
+{
+  lua_State *L = iuplua_call_start(self, "scrolling_cb");
+  lua_pushinteger(L, p0);
+  lua_pushinteger(L, p1);
+  return iuplua_call(L, 2);
+}
+
+static int cells_ncols_cb(Ihandle *self)
+{
+  lua_State *L = iuplua_call_start(self, "ncols_cb");
+  return iuplua_call(L, 0);
+}
+
+static int cells_vspan_cb(Ihandle *self, int p0, int p1)
+{
+  lua_State *L = iuplua_call_start(self, "vspan_cb");
+  lua_pushinteger(L, p0);
+  lua_pushinteger(L, p1);
+  return iuplua_call(L, 2);
 }
 
 static int cells_mouseclick_cb(Ihandle *self, int p0, int p1, int p2, int p3, int p4, int p5, char * p6)
@@ -44,24 +67,11 @@ static int cells_mouseclick_cb(Ihandle *self, int p0, int p1, int p2, int p3, in
   return iuplua_call(L, 7);
 }
 
-static int cells_ncols_cb(Ihandle *self)
+static int cells_width_cb(Ihandle *self, int p0)
 {
-  lua_State *L = iuplua_call_start(self, "ncols_cb");
-  return iuplua_call(L, 0);
-}
-
-static int cells_nlines_cb(Ihandle *self)
-{
-  lua_State *L = iuplua_call_start(self, "nlines_cb");
-  return iuplua_call(L, 0);
-}
-
-static int cells_scrolling_cb(Ihandle *self, int p0, int p1)
-{
-  lua_State *L = iuplua_call_start(self, "scrolling_cb");
+  lua_State *L = iuplua_call_start(self, "width_cb");
   lua_pushinteger(L, p0);
-  lua_pushinteger(L, p1);
-  return iuplua_call(L, 2);
+  return iuplua_call(L, 1);
 }
 
 static int cells_height_cb(Ihandle *self, int p0)
@@ -71,20 +81,10 @@ static int cells_height_cb(Ihandle *self, int p0)
   return iuplua_call(L, 1);
 }
 
-static int cells_hspan_cb(Ihandle *self, int p0, int p1)
+static int cells_nlines_cb(Ihandle *self)
 {
-  lua_State *L = iuplua_call_start(self, "hspan_cb");
-  lua_pushinteger(L, p0);
-  lua_pushinteger(L, p1);
-  return iuplua_call(L, 2);
-}
-
-static int cells_vspan_cb(Ihandle *self, int p0, int p1)
-{
-  lua_State *L = iuplua_call_start(self, "vspan_cb");
-  lua_pushinteger(L, p0);
-  lua_pushinteger(L, p1);
-  return iuplua_call(L, 2);
+  lua_State *L = iuplua_call_start(self, "nlines_cb");
+  return iuplua_call(L, 0);
 }
 
 static int Cells(lua_State *L)
@@ -99,15 +99,15 @@ int iupcellslua_open(lua_State * L)
 {
   iuplua_register(L, Cells, "Cells");
 
-  iuplua_register_cb(L, "WIDTH_CB", (lua_CFunction)cells_width_cb, NULL);
   iuplua_register_cb(L, "MOUSEMOTION_CB", (lua_CFunction)cells_mousemotion_cb, NULL);
-  iuplua_register_cb(L, "MOUSECLICK_CB", (lua_CFunction)cells_mouseclick_cb, NULL);
-  iuplua_register_cb(L, "NCOLS_CB", (lua_CFunction)cells_ncols_cb, NULL);
-  iuplua_register_cb(L, "NLINES_CB", (lua_CFunction)cells_nlines_cb, NULL);
-  iuplua_register_cb(L, "SCROLLING_CB", (lua_CFunction)cells_scrolling_cb, NULL);
-  iuplua_register_cb(L, "HEIGHT_CB", (lua_CFunction)cells_height_cb, NULL);
   iuplua_register_cb(L, "HSPAN_CB", (lua_CFunction)cells_hspan_cb, NULL);
+  iuplua_register_cb(L, "SCROLLING_CB", (lua_CFunction)cells_scrolling_cb, NULL);
+  iuplua_register_cb(L, "NCOLS_CB", (lua_CFunction)cells_ncols_cb, NULL);
   iuplua_register_cb(L, "VSPAN_CB", (lua_CFunction)cells_vspan_cb, NULL);
+  iuplua_register_cb(L, "MOUSECLICK_CB", (lua_CFunction)cells_mouseclick_cb, NULL);
+  iuplua_register_cb(L, "WIDTH_CB", (lua_CFunction)cells_width_cb, NULL);
+  iuplua_register_cb(L, "HEIGHT_CB", (lua_CFunction)cells_height_cb, NULL);
+  iuplua_register_cb(L, "NLINES_CB", (lua_CFunction)cells_nlines_cb, NULL);
 
 #ifdef IUPLUA_USELOH
 #include "cells.loh"

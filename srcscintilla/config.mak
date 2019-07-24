@@ -76,6 +76,8 @@ ifdef USE_GTK
   endif
   ifdef SCINTILLA4
     CPPFLAGS = -std=gnu++17
+  else
+    CPPFLAGS = -fPIC
   endif
 else
   INCLUDES += ../src/win $(SCINTILLA)/win32

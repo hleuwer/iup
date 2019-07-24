@@ -23,6 +23,12 @@ static int flatbutton_flat_button_cb(Ihandle *self, int p0, int p1, int p2, int 
   return iuplua_call(L, 5);
 }
 
+static int flatbutton_flat_leavewindow_cb(Ihandle *self)
+{
+  lua_State *L = iuplua_call_start(self, "flat_leavewindow_cb");
+  return iuplua_call(L, 0);
+}
+
 static int flatbutton_flat_action(Ihandle *self)
 {
   lua_State *L = iuplua_call_start(self, "flat_action");
@@ -32,12 +38,6 @@ static int flatbutton_flat_action(Ihandle *self)
 static int flatbutton_flat_enterwindow_cb(Ihandle *self)
 {
   lua_State *L = iuplua_call_start(self, "flat_enterwindow_cb");
-  return iuplua_call(L, 0);
-}
-
-static int flatbutton_flat_leavewindow_cb(Ihandle *self)
-{
-  lua_State *L = iuplua_call_start(self, "flat_leavewindow_cb");
   return iuplua_call(L, 0);
 }
 
@@ -61,9 +61,9 @@ int iupflatbuttonlua_open(lua_State * L)
   iuplua_register(L, FlatButton, "FlatButton");
 
   iuplua_register_cb(L, "FLAT_BUTTON_CB", (lua_CFunction)flatbutton_flat_button_cb, NULL);
+  iuplua_register_cb(L, "FLAT_LEAVEWINDOW_CB", (lua_CFunction)flatbutton_flat_leavewindow_cb, NULL);
   iuplua_register_cb(L, "FLAT_ACTION", (lua_CFunction)flatbutton_flat_action, NULL);
   iuplua_register_cb(L, "FLAT_ENTERWINDOW_CB", (lua_CFunction)flatbutton_flat_enterwindow_cb, NULL);
-  iuplua_register_cb(L, "FLAT_LEAVEWINDOW_CB", (lua_CFunction)flatbutton_flat_leavewindow_cb, NULL);
   iuplua_register_cb(L, "FLAT_FOCUS_CB", (lua_CFunction)flatbutton_flat_focus_cb, NULL);
 
 #ifdef IUPLUA_USELOH
