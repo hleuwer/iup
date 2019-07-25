@@ -1076,7 +1076,8 @@ ifdef USE_LUA
   LUA_INC ?= $(LUA)/include/lua/$(LUA_VER)
   INCLUDES += $(LUA_INC)
 
-  LUA_BIN ?= $(LUA)/bin/$(TEC_UNAME)
+# leu  LUA_BIN ?= $(LUA)/bin/$(TEC_UNAME)
+  LUA_BIN ?= $(LUA)/bin
   ifdef USE_BIN2C_LUA
     BIN2C := $(LUA_BIN)/lua$(LUA_SFX) $(BIN2C_PATH)bin2c.lua
   else

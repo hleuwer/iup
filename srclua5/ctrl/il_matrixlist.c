@@ -13,39 +13,6 @@
 #include "il.h"
 
 
-static int matrixlist_imagevaluechanged_cb(Ihandle *self, int p0, int p1)
-{
-  lua_State *L = iuplua_call_start(self, "imagevaluechanged_cb");
-  lua_pushinteger(L, p0);
-  lua_pushinteger(L, p1);
-  return iuplua_call(L, 2);
-}
-
-static int matrixlist_listrelease_cb(Ihandle *self, int p0, int p1, char * p2)
-{
-  lua_State *L = iuplua_call_start(self, "listrelease_cb");
-  lua_pushinteger(L, p0);
-  lua_pushinteger(L, p1);
-  lua_pushstring(L, p2);
-  return iuplua_call(L, 3);
-}
-
-static int matrixlist_mousemove_cb(Ihandle *self, int p0, int p1)
-{
-  lua_State *L = iuplua_call_start(self, "mousemove_cb");
-  lua_pushinteger(L, p0);
-  lua_pushinteger(L, p1);
-  return iuplua_call(L, 2);
-}
-
-static int matrixlist_listaction_cb(Ihandle *self, int p0, int p1)
-{
-  lua_State *L = iuplua_call_start(self, "listaction_cb");
-  lua_pushinteger(L, p0);
-  lua_pushinteger(L, p1);
-  return iuplua_call(L, 2);
-}
-
 static int matrixlist_action_cb(Ihandle *self, int p0, int p1, int p2, int p3, char * p4)
 {
   lua_State *L = iuplua_call_start(self, "action_cb");
@@ -55,13 +22,6 @@ static int matrixlist_action_cb(Ihandle *self, int p0, int p1, int p2, int p3, c
   lua_pushinteger(L, p3);
   lua_pushstring(L, p4);
   return iuplua_call(L, 5);
-}
-
-static int matrixlist_listinsert_cb(Ihandle *self, int p0)
-{
-  lua_State *L = iuplua_call_start(self, "listinsert_cb");
-  lua_pushinteger(L, p0);
-  return iuplua_call(L, 1);
 }
 
 static int matrixlist_listedition_cb(Ihandle *self, int p0, int p1, int p2, int p3)
@@ -74,6 +34,22 @@ static int matrixlist_listedition_cb(Ihandle *self, int p0, int p1, int p2, int 
   return iuplua_call(L, 4);
 }
 
+static int matrixlist_listclick_cb(Ihandle *self, int p0, int p1, char * p2)
+{
+  lua_State *L = iuplua_call_start(self, "listclick_cb");
+  lua_pushinteger(L, p0);
+  lua_pushinteger(L, p1);
+  lua_pushstring(L, p2);
+  return iuplua_call(L, 3);
+}
+
+static int matrixlist_listinsert_cb(Ihandle *self, int p0)
+{
+  lua_State *L = iuplua_call_start(self, "listinsert_cb");
+  lua_pushinteger(L, p0);
+  return iuplua_call(L, 1);
+}
+
 static int matrixlist_listremove_cb(Ihandle *self, int p0)
 {
   lua_State *L = iuplua_call_start(self, "listremove_cb");
@@ -81,9 +57,33 @@ static int matrixlist_listremove_cb(Ihandle *self, int p0)
   return iuplua_call(L, 1);
 }
 
-static int matrixlist_listclick_cb(Ihandle *self, int p0, int p1, char * p2)
+static int matrixlist_listaction_cb(Ihandle *self, int p0, int p1)
 {
-  lua_State *L = iuplua_call_start(self, "listclick_cb");
+  lua_State *L = iuplua_call_start(self, "listaction_cb");
+  lua_pushinteger(L, p0);
+  lua_pushinteger(L, p1);
+  return iuplua_call(L, 2);
+}
+
+static int matrixlist_imagevaluechanged_cb(Ihandle *self, int p0, int p1)
+{
+  lua_State *L = iuplua_call_start(self, "imagevaluechanged_cb");
+  lua_pushinteger(L, p0);
+  lua_pushinteger(L, p1);
+  return iuplua_call(L, 2);
+}
+
+static int matrixlist_mousemove_cb(Ihandle *self, int p0, int p1)
+{
+  lua_State *L = iuplua_call_start(self, "mousemove_cb");
+  lua_pushinteger(L, p0);
+  lua_pushinteger(L, p1);
+  return iuplua_call(L, 2);
+}
+
+static int matrixlist_listrelease_cb(Ihandle *self, int p0, int p1, char * p2)
+{
+  lua_State *L = iuplua_call_start(self, "listrelease_cb");
   lua_pushinteger(L, p0);
   lua_pushinteger(L, p1);
   lua_pushstring(L, p2);
@@ -102,15 +102,15 @@ int iupmatrixlistlua_open(lua_State * L)
 {
   iuplua_register(L, MatrixList, "MatrixList");
 
-  iuplua_register_cb(L, "IMAGEVALUECHANGED_CB", (lua_CFunction)matrixlist_imagevaluechanged_cb, NULL);
-  iuplua_register_cb(L, "LISTRELEASE_CB", (lua_CFunction)matrixlist_listrelease_cb, NULL);
-  iuplua_register_cb(L, "MOUSEMOVE_CB", (lua_CFunction)matrixlist_mousemove_cb, "matrixlist");
-  iuplua_register_cb(L, "LISTACTION_CB", (lua_CFunction)matrixlist_listaction_cb, NULL);
   iuplua_register_cb(L, "ACTION_CB", (lua_CFunction)matrixlist_action_cb, "matrixlist");
-  iuplua_register_cb(L, "LISTINSERT_CB", (lua_CFunction)matrixlist_listinsert_cb, NULL);
   iuplua_register_cb(L, "LISTEDITION_CB", (lua_CFunction)matrixlist_listedition_cb, NULL);
-  iuplua_register_cb(L, "LISTREMOVE_CB", (lua_CFunction)matrixlist_listremove_cb, NULL);
   iuplua_register_cb(L, "LISTCLICK_CB", (lua_CFunction)matrixlist_listclick_cb, NULL);
+  iuplua_register_cb(L, "LISTINSERT_CB", (lua_CFunction)matrixlist_listinsert_cb, NULL);
+  iuplua_register_cb(L, "LISTREMOVE_CB", (lua_CFunction)matrixlist_listremove_cb, NULL);
+  iuplua_register_cb(L, "LISTACTION_CB", (lua_CFunction)matrixlist_listaction_cb, NULL);
+  iuplua_register_cb(L, "IMAGEVALUECHANGED_CB", (lua_CFunction)matrixlist_imagevaluechanged_cb, NULL);
+  iuplua_register_cb(L, "MOUSEMOVE_CB", (lua_CFunction)matrixlist_mousemove_cb, "matrixlist");
+  iuplua_register_cb(L, "LISTRELEASE_CB", (lua_CFunction)matrixlist_listrelease_cb, NULL);
 
 #ifdef IUPLUA_USELOH
 #include "matrixlist.loh"

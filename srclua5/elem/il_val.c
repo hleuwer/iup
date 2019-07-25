@@ -12,16 +12,16 @@
 #include "il.h"
 
 
-static int val_mousemove_cb(Ihandle *self, double p0)
+static int val_button_press_cb(Ihandle *self, double p0)
 {
-  lua_State *L = iuplua_call_start(self, "mousemove_cb");
+  lua_State *L = iuplua_call_start(self, "button_press_cb");
   lua_pushnumber(L, p0);
   return iuplua_call(L, 1);
 }
 
-static int val_button_press_cb(Ihandle *self, double p0)
+static int val_mousemove_cb(Ihandle *self, double p0)
 {
-  lua_State *L = iuplua_call_start(self, "button_press_cb");
+  lua_State *L = iuplua_call_start(self, "mousemove_cb");
   lua_pushnumber(L, p0);
   return iuplua_call(L, 1);
 }
@@ -45,8 +45,8 @@ int iupvallua_open(lua_State * L)
 {
   iuplua_register(L, Val, "Val");
 
-  iuplua_register_cb(L, "MOUSEMOVE_CB", (lua_CFunction)val_mousemove_cb, "val");
   iuplua_register_cb(L, "BUTTON_PRESS_CB", (lua_CFunction)val_button_press_cb, NULL);
+  iuplua_register_cb(L, "MOUSEMOVE_CB", (lua_CFunction)val_mousemove_cb, "val");
   iuplua_register_cb(L, "BUTTON_RELEASE_CB", (lua_CFunction)val_button_release_cb, NULL);
 
 #ifdef IUPLUA_USELOH
