@@ -72,7 +72,7 @@ iupview: iupcontrols iup
 iuptest:
 	@$(MAKE) --no-print-directory -C ./test/
 
-.PHONY: clean clean-target clean-obj install install-app install-slib install-dlib install-mod uninstall install-list tec_uname info sysinfo
+.PHONY: clean clean-target clean-obj install install-app install-slib install-dlib install-mod uninstall install-list tec_uname info sysinfo install-inc
 
 clean clean-target clean-obj:
 	@for i in $(SUBDIRS); \
