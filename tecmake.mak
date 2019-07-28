@@ -16,7 +16,7 @@ build: tecmake
 #---------------------------------#
 # System Variables Definitions
 
-ifeq ($(TEC_SYSNAME), Darwin)
+ifeq ($(TEC_SYSNAME), MacOS)
    GTK_BASE=/opt/local
    GTK_MAC=Yes
 endif

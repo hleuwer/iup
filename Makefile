@@ -28,9 +28,6 @@ INSTALL_INCDIR = $(INSTALL_DIR)/include
 
 do_all: $(MODS)
 
-sysinfo:
-	@$(MAKE) --no-print-directory -C ./src
-
 #iup iupgtk iupmot:
 #	@$(MAKE) --no-print-directory -C ./src/ $@
 iup iupgtk iupmot:
@@ -75,7 +72,7 @@ iupview: iupcontrols iup
 iuptest:
 	@$(MAKE) --no-print-directory -C ./test/
 
-.PHONY: clean clean-target clean-obj install install-app install-slib install-dlib install-mod uninstall install-list tec_uname
+.PHONY: clean clean-target clean-obj install install-app install-slib install-dlib install-mod uninstall install-list tec_uname info sysinfo
 
 clean clean-target clean-obj:
 	@for i in $(SUBDIRS); \
@@ -101,6 +98,10 @@ install-slib: slib.list
 install-dlib: dlib.list
 	@echo "Installing dynamic libraries ..."
 	@for i in $(DLIBS); do cp -f $$i $(INSTALL_LIBDIR); done
+
+sysinfo:
+	@cd ./src && $(MAKE) -f ../tecmake.mak sysinfo
+
 info:
 	@echo "TEC_UNAME   = "$(TEC_UNAME)
 	@echo "TEC_SYSNAME = "$(TEC_SYSNAME)
@@ -161,3 +162,4 @@ uninstall-mod:
 #	@for i in $(shell cat mods51.list); do rm $(INSTALL_MODDIR)/5.1/$$i $(INSTALL_LIBDIR)/lib$$i; done
 	@for i in $(shell cat mods52.list); do rm $(INSTALL_MODDIR)/5.2/$$i $(INSTALL_LIBDIR)/lib$$i; done
 	@for i in $(shell cat mods53.list); do rm $(INSTALL_MODDIR)/5.3/$$i $(INSTALL_LIBDIR)/lib$$i; done
+
