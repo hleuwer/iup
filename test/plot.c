@@ -174,6 +174,7 @@ static void InitPlots(void)
   IupPlotEnd(plot[0]);
   IupSetAttribute(plot[0], "DS_LEGEND", "Curve 2");
   IupSetAttribute(plot[0], "DS_ORDEREDX", "No");
+  IupSetAttribute(plot[9], "GRAPHICSMODE", "NATIVE");
 
   /************************************************************************/
   /* PLOT 1 */
@@ -203,8 +204,10 @@ static void InitPlots(void)
   IupSetAttribute(plot[1], "LEGENDSHOW", "YES");
   IupSetAttribute(plot[1], "AXS_XLABELCENTERED", "Yes");
   IupSetAttribute(plot[1], "AXS_YLABELCENTERED", "Yes");
-  IupSetAttribute(plot[1], "GRAPHICSMODE", "IMAGERGB");
+  //  IupSetAttribute(plot[1], "GRAPHICSMODE", "IMAGERGB");
+  IupSetAttribute(plot[1], "GRAPHICSMODE", "NATIVE");
   IupSetAttribute(plot[1], "HIGHLIGHTMODE", "CURVE");
+  IupSetAttribute(plot[1], "GRAPHICSMODE", "NATIVE");
 
   theFac = 1.0 / (100 * 100 * 100);
   IupPlotBegin(plot[1], 0);
@@ -255,6 +258,7 @@ static void InitPlots(void)
   IupPlotEnd(plot[2]);
   IupSetAttribute(plot[2], "DS_COLOR", "100 100 200");
   IupSetAttribute(plot[2], "DS_LINESTYLE", "DOTTED");
+  IupSetAttribute(plot[2], "GRAPHICSMODE", "NATIVE");
 
   /************************************************************************/
   /* PLOT 3 */
@@ -298,6 +302,7 @@ static void InitPlots(void)
   IupSetAttribute(plot[4], "AXS_XTICKFORMAT", "%1.3f");
   IupSetAttribute(plot[4], "LEGENDSHOW", "YES");
   IupSetAttribute(plot[4], "LEGENDPOS", "BOTTOMRIGHT");
+  IupSetAttribute(plot[4], "GRAPHICSMODE", "NATIVE");
 
   theFac = 100.0 / (100 * 100 * 100);
   IupPlotBegin(plot[4], 0);
@@ -351,6 +356,7 @@ static void InitPlots(void)
   IupSetCallback(plot[5], "SELECT_CB", (Icallback)select_cb);
   IupSetCallback(plot[5], "POSTDRAW_CB", (Icallback)postdraw_cb);
   IupSetCallback(plot[5], "PREDRAW_CB", (Icallback)predraw_cb);
+  IupSetAttribute(plot[5], "GRAPHICSMODE", "NATIVE");
 
   /************************************************************************/
   /* PLOT 6 */
@@ -368,6 +374,7 @@ static void InitPlots(void)
   IupSetAttribute(plot[6], "DS_MODE", "STEP");
   IupSetAttribute(plot[6], "HIGHLIGHTMODE", "SAMPLE");
   IupSetAttribute(plot[6], "DATASETCLIPPING", "NONE");
+  IupSetAttribute(plot[6], "GRAPHICSMODE", "NATIVE");
 
   /************************************************************************/
   /* PLOT 7 */
@@ -398,6 +405,7 @@ static void InitPlots(void)
   IupSetAttribute(plot[7], "DS_MODE", "MARKSTEM");
   IupSetAttribute(plot[7], "DS_MARKSTYLE", "HOLLOW_CIRCLE");
   IupSetAttribute(plot[7], "HIGHLIGHTMODE", "SAMPLE");
+  IupSetAttribute(plot[7], "GRAPHICSMODE", "NATIVE");
 
   /************************************************************************/
   /* PLOT 8 */
@@ -422,6 +430,7 @@ static void InitPlots(void)
   IupSetAttribute(plot[8], "DS_BAROUTLINE", "Yes");
   IupSetAttribute(plot[8], "DS_BAROUTLINECOLOR", "70 70 160");
   IupSetAttribute(plot[8], "HIGHLIGHTMODE", "SAMPLE");
+  IupSetAttribute(plot[8], "GRAPHICSMODE", "NATIVE");
 
   /************************************************************************/
   /* PLOT 9 */
@@ -460,6 +469,7 @@ static void InitPlots(void)
   IupSetAttribute(plot[9], "DS_BAROUTLINE", "Yes");
   IupSetAttribute(plot[9], "DS_BAROUTLINECOLOR", "70 70 160");
   IupSetAttribute(plot[9], "HIGHLIGHTMODE", "SAMPLE");
+  IupSetAttribute(plot[9], "GRAPHICSMODE", "NATIVE");
 //  IupSetAttribute(plot[9], "GRAPHICSMODE", "OPENGL");
 
   {
@@ -533,7 +543,7 @@ static void InitPlots(void)
 
   IupSetAttribute(plot[9], "DS_MODE", "PIE");
 //  IupSetAttribute(plot[9], "GRAPHICSMODE", "OPENGL");
-  //IupSetAttribute(plot[9], "GRAPHICSMODE", "NATIVE");
+  IupSetAttribute(plot[9], "GRAPHICSMODE", "NATIVE");
   //IupSetAttribute(plot[9], "GRAPHICSMODE", "IMAGERGB");
 
   IupSetAttribute(plot[9], "VIEWPORTSQUARE", "Yes");

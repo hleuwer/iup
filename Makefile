@@ -119,13 +119,11 @@ install-mod: mods52.list mods53.list
 #	done
 	@mkdir -p $(INSTALL_MODDIR)/5.2
 	@for i in $(shell cat mods52.list); do \
-		echo "installing module "$$i \
 		cp -f lib/$(TEC_UNAME)/Lua52/lib$$i $(INSTALL_LIBDIR)/lib$$i; \
 		ln -f -s $(INSTALL_LIBDIR)/lib$$i $(INSTALL_MODDIR)/5.2/$$i; \
 	done
 	@mkdir -p $(INSTALL_MODDIR)/5.3 
 	@for i in $(shell cat mods53.list); do \
-		echo "installing module "$$i \
 		cp -f lib/$(TEC_UNAME)/Lua53/lib$$i $(INSTALL_LIBDIR)/lib$$i; \
 		ln -f -s $(INSTALL_LIBDIR)/lib$$i $(INSTALL_MODDIR)/5.3/$$i; \
 	done
