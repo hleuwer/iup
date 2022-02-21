@@ -1,141 +1,145 @@
 $(OBJDIR)/bigtest.o: bigtest.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupcontrols.h ../include/iupkey.h
+  ../include/iupdef.h ../include/iupcontrols.h
 $(OBJDIR)/tray.o: tray.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/dialog.o: dialog.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupkey.h
+  ../include/iupdef.h
 $(OBJDIR)/calendar.o: calendar.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h
+  ../include/iupdef.h
 $(OBJDIR)/predialogs.o: predialogs.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupkey.h ../include/iupcontrols.h \
- ../include/iupgl.h ../include/iupdraw.h
+  ../include/iupdef.h ../include/iupcontrols.h /opt/X11/include/GL/gl.h \
+  /opt/X11/include/GL/glext.h /opt/X11/include/KHR/khrplatform.h \
+  ../include/iupgl.h ../include/iupdraw.h
 $(OBJDIR)/timer.o: timer.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/label.o: label.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h \
- ../include/iupim.h
+  ../include/iupim.h
 $(OBJDIR)/canvas.o: canvas.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupkey.h ../include/iupdraw.h
+  ../include/iupdef.h ../include/iupdraw.h
 $(OBJDIR)/frame.o: frame.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/idle.o: idle.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/button.o: button.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupkey.h
+  ../include/iupdef.h
 $(OBJDIR)/flatbutton.o: flatbutton.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupkey.h
+  ../include/iupdef.h
 $(OBJDIR)/flatframe.o: flatframe.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h
+  ../include/iupdef.h
 $(OBJDIR)/toggle.o: toggle.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h
+  ../include/iupdef.h
 $(OBJDIR)/vbox.o: vbox.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/hbox.o: hbox.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/progressbar.o: progressbar.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupcontrols.h
+  ../include/iupdef.h ../include/iupcontrols.h
 $(OBJDIR)/progressdlg.o: progressdlg.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h
-$(OBJDIR)/text.o: text.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h \
- ../include/iupkey.h
-$(OBJDIR)/val.o: val.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h \
- ../include/iupkey.h
-$(OBJDIR)/tabs.o: tabs.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h \
- ../include/iupkey.h
+  ../include/iupdef.h
+$(OBJDIR)/text.o: text.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
+$(OBJDIR)/val.o: val.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
+$(OBJDIR)/tabs.o: tabs.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/sample.o: sample.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupdraw.h
+  ../include/iupdef.h ../include/iupdraw.h
 $(OBJDIR)/flatsample.o: flatsample.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupdraw.h
+  ../include/iupdef.h ../include/iupdraw.h
 $(OBJDIR)/menu.o: menu.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/spin.o: spin.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/text_spin.o: text_spin.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupkey.h
-$(OBJDIR)/list.o: list.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h \
- ../include/iupkey.h
+  ../include/iupdef.h
+$(OBJDIR)/list.o: list.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/sysinfo.o: sysinfo.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h
+  ../include/iupdef.h
 $(OBJDIR)/mdi.o: mdi.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/getparam.o: getparam.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupcontrols.h
+  ../include/iupdef.h ../include/iupcontrols.h
 $(OBJDIR)/getcolor.o: getcolor.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupcontrols.h
+  ../include/iupdef.h ../include/iupcontrols.h
 $(OBJDIR)/class_conf.o: class_conf.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../src/iup_class.h ../src/iup_table.h \
- ../src/iup_classbase.h ../src/iup_register.h
-$(OBJDIR)/tree.o: tree.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h \
- ../include/iupkey.h
+  ../include/iupdef.h ../src/iup_class.h ../src/iup_table.h \
+  ../src/iup_classbase.h ../src/iup_register.h
+$(OBJDIR)/tree.o: tree.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/zbox.o: zbox.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/scanf.o: scanf.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/sbox.o: sbox.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/scrollbox.o: scrollbox.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupcontrols.h
+  ../include/iupdef.h ../include/iupcontrols.h
 $(OBJDIR)/clipboard.o: clipboard.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupkey.h
+  ../include/iupdef.h
 $(OBJDIR)/split.o: split.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/link.o: link.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/gridbox.o: gridbox.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h
+  ../include/iupdef.h
 $(OBJDIR)/multibox.o: multibox.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h
+  ../include/iupdef.h
 $(OBJDIR)/expander.o: expander.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupcontrols.h
+  ../include/iupdef.h ../include/iupcontrols.h
 $(OBJDIR)/cbox.o: cbox.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h \
- ../include/iupcontrols.h
+  ../include/iupcontrols.h
 $(OBJDIR)/detachbox.o: detachbox.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h
+  ../include/iupdef.h
 $(OBJDIR)/flattabs.o: flattabs.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupkey.h
+  ../include/iupdef.h
 $(OBJDIR)/flatscrollbox.o: flatscrollbox.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupcontrols.h
+  ../include/iupdef.h ../include/iupcontrols.h
 $(OBJDIR)/dropbutton.o: dropbutton.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupkey.h ../include/iupcontrols.h
+  ../include/iupdef.h ../include/iupcontrols.h
 $(OBJDIR)/flatlabel.o: flatlabel.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupim.h
+  ../include/iupdef.h ../include/iupim.h
 $(OBJDIR)/flattoggle.o: flattoggle.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h
+  ../include/iupdef.h
 $(OBJDIR)/canvas_scrollbar.o: canvas_scrollbar.c ../include/iup.h \
- ../include/iupkey.h ../include/iupdef.h ../../cd/include/cd.h \
- ../../cd/include/cdiup.h ../../cd/include/wd.h ../../cd/include/wd_old.h
+  ../include/iupkey.h ../include/iupdef.h ../../cd/include/cd.h \
+  ../../cd/include/cdiup.h ../../cd/include/wd.h \
+  ../../cd/include/wd_old.h
 $(OBJDIR)/canvas_cddbuffer.o: canvas_cddbuffer.c ../include/iup.h \
- ../include/iupkey.h ../include/iupdef.h ../../cd/include/cd.h \
- ../../cd/include/cdiup.h ../../cd/include/cddbuf.h
+  ../include/iupkey.h ../include/iupdef.h ../../cd/include/cd.h \
+  ../../cd/include/cdiup.h ../../cd/include/cddbuf.h
 $(OBJDIR)/canvas_cdsimple.o: canvas_cdsimple.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../../cd/include/cd.h ../../cd/include/cdiup.h
-$(OBJDIR)/glcanvas.o: glcanvas.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupgl.h
-$(OBJDIR)/glcanvas_cube.o: glcanvas_cube.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupgl.h ../include/iupglcontrols.h \
- ../include/iupcontrols.h ../include/iupim.h
+  ../include/iupdef.h ../../cd/include/cd.h ../../cd/include/cdiup.h
+$(OBJDIR)/glcanvas.o: glcanvas.c /opt/X11/include/GL/gl.h \
+  /opt/X11/include/GL/glext.h /opt/X11/include/KHR/khrplatform.h \
+  ../include/iup.h ../include/iupkey.h ../include/iupdef.h \
+  ../include/iupgl.h
+$(OBJDIR)/glcanvas_cube.o: glcanvas_cube.c /opt/X11/include/GL/gl.h \
+  /opt/X11/include/GL/glext.h /opt/X11/include/KHR/khrplatform.h \
+  /opt/X11/include/GL/glu.h ../include/iup.h ../include/iupkey.h \
+  ../include/iupdef.h ../include/iupgl.h ../include/iupglcontrols.h \
+  ../include/iupcontrols.h ../include/iupim.h
 $(OBJDIR)/charac.o: charac.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupgl.h ../../cd/include/cd.h \
- ../../cd/include/cdiup.h ../../cd/include/cdgl.h
+  ../include/iupdef.h ../include/iupgl.h ../../cd/include/cd.h \
+  ../../cd/include/cdiup.h ../../cd/include/cdgl.h \
+  /opt/X11/include/GL/gl.h /opt/X11/include/GL/glext.h \
+  /opt/X11/include/KHR/khrplatform.h /opt/X11/include/GL/glu.h
 $(OBJDIR)/colorbrowser.o: colorbrowser.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupcontrols.h
+  ../include/iupdef.h ../include/iupcontrols.h
 $(OBJDIR)/dial.o: dial.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h \
- ../include/iupcontrols.h
+  ../include/iupcontrols.h
 $(OBJDIR)/dial_led.o: dial_led.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupcontrols.h
+  ../include/iupdef.h ../include/iupcontrols.h
 $(OBJDIR)/colorbar.o: colorbar.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../../cd/include/cd.h ../../cd/include/cd_old.h \
- ../../cd/include/cdiup.h
+  ../include/iupdef.h ../../cd/include/cd.h ../../cd/include/cd_old.h \
+  ../../cd/include/cdiup.h
 $(OBJDIR)/cells_numbering.o: cells_numbering.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../../cd/include/cd.h ../include/iupcontrols.h
+  ../include/iupdef.h ../../cd/include/cd.h ../include/iupcontrols.h
 $(OBJDIR)/cells_degrade.o: cells_degrade.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../../cd/include/cd.h ../include/iupcontrols.h
+  ../include/iupdef.h ../../cd/include/cd.h ../include/iupcontrols.h
 $(OBJDIR)/cells_checkboard.o: cells_checkboard.c ../include/iup.h \
- ../include/iupkey.h ../include/iupdef.h ../../cd/include/cd.h \
- ../include/iupcontrols.h
+  ../include/iupkey.h ../include/iupdef.h ../../cd/include/cd.h \
+  ../include/iupcontrols.h
 $(OBJDIR)/gauge.o: gauge.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h \
- ../include/iupcontrols.h
+  ../include/iupcontrols.h
 $(OBJDIR)/matrix.o: matrix.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupcontrols.h ../include/iupcbs.h
+  ../include/iupdef.h ../include/iupcontrols.h ../include/iupcbs.h
 $(OBJDIR)/matrix_cbs.o: matrix_cbs.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupcontrols.h ../../cd/include/cd.h
+  ../include/iupdef.h ../include/iupcontrols.h ../../cd/include/cd.h
 $(OBJDIR)/matrix_cbmode.o: matrix_cbmode.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupcontrols.h
+  ../include/iupdef.h ../include/iupcontrols.h
 $(OBJDIR)/matrixlist.o: matrixlist.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupcontrols.h ../../cd/include/cd.h
+  ../include/iupdef.h ../include/iupcontrols.h ../../cd/include/cd.h
 $(OBJDIR)/plot.o: plot.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h \
- ../include/iupcontrols.h ../include/iup_plot.h ../include/iupim.h \
- ../../cd/include/cd.h ../../cd/include/cdiup.h ../../cd/include/cdpdf.h
+  ../include/iupcontrols.h ../include/iup_plot.h ../include/iupim.h \
+  ../../cd/include/cd.h ../../cd/include/cdiup.h \
+  ../../cd/include/cdpdf.h
 $(OBJDIR)/mglplot.o: mglplot.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupcontrols.h ../include/iup_mglplot.h
+  ../include/iupdef.h ../include/iupcontrols.h ../include/iup_mglplot.h
 $(OBJDIR)/mathglsamples.o: mathglsamples.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iupcontrols.h ../include/iup_mglplot.h
+  ../include/iupdef.h ../include/iupcontrols.h ../include/iup_mglplot.h
 $(OBJDIR)/mgllabel.o: mgllabel.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iup_mglplot.h
+  ../include/iupdef.h ../include/iup_mglplot.h
 $(OBJDIR)/scintilla.o: scintilla.c ../include/iup.h ../include/iupkey.h \
- ../include/iupdef.h ../include/iup_scintilla.h
+  ../include/iupdef.h ../include/iup_scintilla.h

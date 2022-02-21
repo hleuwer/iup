@@ -2,7 +2,8 @@ ifeq ($(OS), Windows_NT)
   WINLIBS = iupole iupfiledlg
 endif
 
-TEC_UNAME=$(shell ls bin)
+#TEC_UNAME=$(shell ls bin)
+TEC_UNAME=$(shell ./tecmake_init --uname)
 
 .PHONY: do_all iup iupgtk iupmot iupcd iupcontrols iupgl iupglcontrols iup_plot iup_mglplot iup_scintilla iupim iupimglib ledc iupview iuplua5 iupluaconsole iupluascripter iupole iupfiledlg iupweb iuptuio iuptest clean clean-target clean-obj clean-all
 #do_all: iup iupcd iupcontrols iupgl iupglcontrols iup_plot iup_mglplot iup_scintilla iupim iupimglib $(WINLIBS) iupweb iuptuio ledc iupview iuplua5 iupluaconsole iupluascripter
@@ -64,9 +65,8 @@ iupluaconsole:
 	@$(MAKE) --no-print-directory -C ./srcluaconsole/
 iupluascripter:
 	@$(MAKE) --no-print-directory -C ./srcluascripter/
-
-ledc:
-	@$(MAKE) --no-print-directory -C ./srcledc/
+#ledc:
+#	@$(MAKE) --no-print-directory -C ./srcledc/
 iupview: iupcontrols iup
 	@$(MAKE) --no-print-directory -C ./srcview/
 iuptest:
@@ -110,7 +110,8 @@ info:
 		echo "   "$$i; \
 	done
 install-mod: mods52.list mods53.list
-	@echo "Installing Lua modules ..."	
+	@echo "Installing Lua modules ..."
+	@echo $(TEC_UNAME)
 #	@mkdir -p $(INSTALL_MODDIR)/5.2
 #	@for i in $(shell cat mods51.list); do \
 #		mkdir -p $(INSTALL_MODDIR)/5.1 \

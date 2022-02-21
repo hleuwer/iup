@@ -152,7 +152,6 @@ else
   SLIB += $(CD_LIB)/libcdcontextplus.a
 #  SLIB += $(CD_LIB)/libcdpdflib.a
 endif
-
 DEFINES += MGLPLOT_TEST
 SRC += mglplot.c
 SRC += mathglsamples.c
@@ -165,7 +164,6 @@ endif
 
 #SRC += webbrowser.c
 #USE_IUPWEB = 
-
 SRC += scintilla.c
 ifneq ($(findstring Win, $(TEC_SYSNAME)), )
   LIBS += iup_scintilla imm32

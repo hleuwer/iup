@@ -81,12 +81,12 @@ const char* iupgtkGetNativeFontIdName(void)
 {
   return "????";
 }
-
+#ifdef USE_GTK2
 void* iupgtkGetNativeGraphicsContext(GtkWidget* widget)
 {
   return (void*)gdk_gc_new((GdkDrawable*)iupgtkGetWindow(widget));
 }
-
+#endif
 void iupgtkReleaseNativeGraphicsContext(GtkWidget* widget, void* gc)
 {
   g_object_unref(gc);

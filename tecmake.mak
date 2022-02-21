@@ -317,10 +317,9 @@ ifdef GTK_DEFAULT
     ifneq ($(findstring cygw, $(TEC_UNAME)), )
       USE_GTK3 = Yes
     endif
-    #Homebrew
-    #ifneq ($(findstring MacOS10, $(TEC_UNAME)), )
-    #  USE_GTK3 = Yes
-    #endif
+    ifneq ($(findstring MacOS, $(TEC_UNAME)), )
+      USE_GTK3 =
+    endif
   endif
 endif
 
@@ -1376,9 +1375,14 @@ ifdef USE_GTK
   # Option 3 - GTK-OSX Framework
      LDIR += $(GTK)/lib
      LFLAGS += -framework Carbon
-     LIBS += gtk-quartz-$(GTKSFX).0 gdk-quartz-$(GTKSFX).0 pangoft2-1.0
-
+     ifdef USE_GTK3
+#        LIBS += gtkextra-quartz-$(GTKSFX).0 gdk-quartz-2.0 pangoft2-1.0
+        LIBS += gtk-$(GTKSFX).0 gtkextra-quartz-$(GTKSFX).0 gdk-$(GTKSFX).0 pangoft2-1.0
+     else
+        LIBS += gtk-quartz-$(GTKSFX).0 gdk-quartz-$(GTKSFX).0 pangoft2-1.0
+     endif
       LIBS += freetype
+      DEFINES+=USE_GTK$(GTKSFX)
     else
       # if not the default, then include it for linker
       # must be before the default
@@ -1404,6 +1408,7 @@ ifdef USE_GTK
     
     STDINCS += $(GTK)/include/atk-1.0 $(GTK)/include/gtk-$(GTKSFX).0 $(GTK)/include/gdk-pixbuf-2.0 
     STDINCS += $(GTK)/include/cairo $(GTK)/include/pango-1.0 $(GTK)/include/glib-2.0
+    STDINCS += $(GTK)/include/harfbuzz
 
     ifeq ($(TEC_SYSARCH), x64)
       STDINCS += $(GTK)/lib64/glib-2.0/include 

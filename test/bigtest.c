@@ -9,7 +9,9 @@ export G_DEBUG=gc-friendly
 export G_SLICE=always-malloc
 */
 
-#define NO_WEBBROWSER_TEST
+#define WEBBROWSER_TEST 0
+#define SCINTILLA_TEST 1
+#define MGLPLOT_TEST 1
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -79,7 +81,7 @@ void ProgressbarTest(void);
 void ProgressDlgTest(void);
 void PreDialogsTest(void);
 void PlotTest(void);
-#ifdef MGLPLOT_TEST
+#if (MGLPLOT_TEST == 1)
 void MglPlotTest(void);
 #endif
 void GetParamTest(void);
@@ -95,12 +97,12 @@ void CharacTest(void);
 void LinkTest(void);
 void ExpanderTest(void);
 void CalendarTest(void);
-#ifndef NO_SCINTILLA_TEST
+#if (SCINTILLA_TEST == 1)
 void ScintillaTest(void);
 #endif
 void DetachBoxTest(void);
 void CboxTest(void);
-#ifndef NO_WEBBROWSER_TEST
+#if (WEBBROWSER_TEST == 1)
 void WebBrowserTest(void);
 #endif
 void MglLabelTest(void);
@@ -182,7 +184,7 @@ static TestItems test_list[] = {
   { "MatrixList", MatrixListTest },
   { "Mdi", MdiTest },
   {"Menu", MenuTest},
-#ifdef MGLPLOT_TEST
+#if (MGLPLOT_TEST == 1)
   {"MglPlot", MglPlotTest},
   { "MglPlotModes", MglPlotModesTest },
   { "MglLabel", MglLabelTest },
@@ -194,7 +196,7 @@ static TestItems test_list[] = {
   {"Sample", SampleTest},
   { "FlatSample", FlatSampleTest },
   { "Sbox", SboxTest },
-#ifndef NO_SCINTILLA_TEST
+#if (SCINTILLA_TEST == 1)
   { "Scintilla", ScintillaTest },
 #endif
   { "ScrollBox", ScrollBoxTest },
@@ -215,7 +217,7 @@ static TestItems test_list[] = {
   {"Val", ValTest},
   {"Vbox", VboxTest},
   {"Zbox", ZboxTest},
-#ifndef NO_WEBBROWSER_TEST
+#if (WEBBROWSER_TEST == 1)
   { "WebBrowser", WebBrowserTest },
 #endif
 };

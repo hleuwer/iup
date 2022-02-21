@@ -8,6 +8,7 @@
 #include <stdlib.h> 
 #include <string.h>
 
+
 /* This module should depend only on IUP core headers and
    Mac OS Carbon system headers. */
 
@@ -31,6 +32,7 @@
 
 #define IUP_MAC_ERROR -1
 
+int HIWindowGetAvailablePositioningBounds(int, int, Rect*);
 #if 0
 static void iupMacStrToUniChar(const char* buffer, UniChar* outBuf, long length, long* outLen)
 {
@@ -114,7 +116,9 @@ void iupdrvGetFullSize(int *width, int *height)
 
 int iupdrvGetScreenDepth(void)
 {
-  return CGDisplayBitsPerPixel(kCGDirectMainDisplay);  /* Deprecated in Mac OS X v10.6 */
+#if 0 
+   return CGDisplayBitsPerPixel(kCGDirectMainDisplay);  /* Deprecated in Mac OS X v10.6 */
+#endif
 }
 
 double iupdrvGetScreenDpi(void)
