@@ -6,9 +6,10 @@ $(OBJDIR)/dialog.o: dialog.c ../include/iup.h ../include/iupkey.h \
 $(OBJDIR)/calendar.o: calendar.c ../include/iup.h ../include/iupkey.h \
   ../include/iupdef.h
 $(OBJDIR)/predialogs.o: predialogs.c ../include/iup.h ../include/iupkey.h \
-  ../include/iupdef.h ../include/iupcontrols.h /opt/X11/include/GL/gl.h \
-  /opt/X11/include/GL/glext.h /opt/X11/include/KHR/khrplatform.h \
-  ../include/iupgl.h ../include/iupdraw.h
+  ../include/iupdef.h ../include/iupcontrols.h \
+  /usr/X11R6/include/GL/gl.h /usr/X11R6/include/GL/glext.h \
+  /usr/X11R6/include/KHR/khrplatform.h ../include/iupgl.h \
+  ../include/iupdraw.h
 $(OBJDIR)/timer.o: timer.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h
 $(OBJDIR)/label.o: label.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h \
   ../include/iupim.h
@@ -91,20 +92,20 @@ $(OBJDIR)/canvas_cddbuffer.o: canvas_cddbuffer.c ../include/iup.h \
   ../../cd/include/cdiup.h ../../cd/include/cddbuf.h
 $(OBJDIR)/canvas_cdsimple.o: canvas_cdsimple.c ../include/iup.h ../include/iupkey.h \
   ../include/iupdef.h ../../cd/include/cd.h ../../cd/include/cdiup.h
-$(OBJDIR)/glcanvas.o: glcanvas.c /opt/X11/include/GL/gl.h \
-  /opt/X11/include/GL/glext.h /opt/X11/include/KHR/khrplatform.h \
+$(OBJDIR)/glcanvas.o: glcanvas.c /usr/X11R6/include/GL/gl.h \
+  /usr/X11R6/include/GL/glext.h /usr/X11R6/include/KHR/khrplatform.h \
   ../include/iup.h ../include/iupkey.h ../include/iupdef.h \
   ../include/iupgl.h
-$(OBJDIR)/glcanvas_cube.o: glcanvas_cube.c /opt/X11/include/GL/gl.h \
-  /opt/X11/include/GL/glext.h /opt/X11/include/KHR/khrplatform.h \
-  /opt/X11/include/GL/glu.h ../include/iup.h ../include/iupkey.h \
+$(OBJDIR)/glcanvas_cube.o: glcanvas_cube.c /usr/X11R6/include/GL/gl.h \
+  /usr/X11R6/include/GL/glext.h /usr/X11R6/include/KHR/khrplatform.h \
+  /usr/X11R6/include/GL/glu.h ../include/iup.h ../include/iupkey.h \
   ../include/iupdef.h ../include/iupgl.h ../include/iupglcontrols.h \
   ../include/iupcontrols.h ../include/iupim.h
 $(OBJDIR)/charac.o: charac.c ../include/iup.h ../include/iupkey.h \
   ../include/iupdef.h ../include/iupgl.h ../../cd/include/cd.h \
   ../../cd/include/cdiup.h ../../cd/include/cdgl.h \
-  /opt/X11/include/GL/gl.h /opt/X11/include/GL/glext.h \
-  /opt/X11/include/KHR/khrplatform.h /opt/X11/include/GL/glu.h
+  /usr/X11R6/include/GL/gl.h /usr/X11R6/include/GL/glext.h \
+  /usr/X11R6/include/KHR/khrplatform.h /usr/X11R6/include/GL/glu.h
 $(OBJDIR)/colorbrowser.o: colorbrowser.c ../include/iup.h ../include/iupkey.h \
   ../include/iupdef.h ../include/iupcontrols.h
 $(OBJDIR)/dial.o: dial.c ../include/iup.h ../include/iupkey.h ../include/iupdef.h \

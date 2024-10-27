@@ -7,7 +7,8 @@ endif
 
 .PHONY: do_all iuplua iupluacd iupluacontrols iupluagl iupluaglcontrols iuplua_plot iuplua_mglplot iuplua_scintilla iupluaim iupluaimglib iupluatuio iupluaole iupluafiledlg iupluaweb iupluascripterdlg
 #do_all: iuplua iupluacd iupluacontrols iupluagl iupluaglcontrols iuplua_plot iuplua_mglplot iuplua_scintilla iupluaim iupluaimglib iupluatuio $(WINLIBS) iupluaweb iupluascripterdlg
-do_all: iuplua iupluacd iupluacontrols iupluagl iupluaglcontrols iuplua_plot iuplua_mglplot iuplua_scintilla iupluaim iupluaimglib iupluatuio $(WINLIBS) iupluascripterdlg
+#do_all: iuplua iupluacd iupluacontrols iupluagl iupluaglcontrols iuplua_plot iuplua_mglplot iuplua_scintilla iupluaim iupluaimglib iupluatuio $(WINLIBS) iupluascripterdlg
+do_all: iuplua iupluacd iupluacontrols iuplua_plot  iuplua_scintilla iupluaim iupluaimglib iupluatuio $(WINLIBS) iupluascripterdlg
 
 iuplua:
 #	@$(TECMAKE_CMD) USE_LUA51=Yes 

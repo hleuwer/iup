@@ -8,11 +8,13 @@ TEC_UNAME=$(shell ./tecmake_init --uname)
 .PHONY: do_all iup iupgtk iupmot iupcd iupcontrols iupgl iupglcontrols iup_plot iup_mglplot iup_scintilla iupim iupimglib ledc iupview iuplua5 iupluaconsole iupluascripter iupole iupfiledlg iupweb iuptuio iuptest clean clean-target clean-obj clean-all
 #do_all: iup iupcd iupcontrols iupgl iupglcontrols iup_plot iup_mglplot iup_scintilla iupim iupimglib $(WINLIBS) iupweb iuptuio ledc iupview iuplua5 iupluaconsole iupluascripter
 
-MODS = iup iupgtk iupcd iupcontrols iupgl iupglcontrols iup_plot iup_mglplot iup_scintilla iupim iupimglib $(WINLIBS) iuptuio ledc iuplua5 iuptest iupview
+#MODS = iup iupgtk iupcd iupcontrols iupgl iupglcontrols iup_plot iup_mglplot iup_scintilla iupim iupimglib $(WINLIBS) iuptuio ledc iuplua5 iuptest iupview
+MODS = iup iupgtk iupcd iupcontrols  iupgl iupglcontrols iup_plot  iup_mglplot iup_scintilla iupim iupimglib $(WINLIBS) iuptuio ledc iuplua5 iuptest iupview
 # leu: issue with linking bundle .so lib to application
-MODS_NOT_WORKING = iupluaconsole iupluascripter
+MODS_NOT_WORKING = iupluaconsole iupluascripter iupgl iupglcontrols iup_mglplot
 
-SUBDIRS = src srccd srccontrols srcplot srcmglplot srcscintilla srcgl srcglcontrols srcim srcfiledlg srcweb srctuio srcimglib srclua5 srcluaconsole srcluascripter srcledc srcview test
+#SUBDIRS = src srccd srccontrols srcplot srcmglplot srcscintilla srcgl srcglcontrols srcim srcfiledlg srcweb srctuio srcimglib srclua5 srcluaconsole srcluascripter srcledc srcview test
+SUBDIRS = src srccd srccontrols srcplot  srcscintilla  srcim srcfiledlg srcweb srctuio srcimglib srclua5 srcluaconsole srcluascripter srcledc srcview test
 
 # Installation items
 APPS = $(shell cat apps.list)
@@ -84,7 +86,7 @@ install: install-app install-slib install-dlib install-mod install-inc
 
 install-inc: inc.list
 	@echo "Installing headers ..."
-	@mkdir -p $(INSTALL_INCDIR)/cd
+	@mkdir -p $(INSTALL_INCDIR)/iup
 	@for i in $(INCS); do cp -f include/$$i $(INSTALL_INCDIR)/iup; done
 
 install-app: apps.list
@@ -141,9 +143,9 @@ endif
 ifeq (MacOS, $(TEC_SYSNAME))
 	@find . -name "*.dylib" > dlib.list
 endif
-#	@cd lib/$(TEC_UNAME)/Lua51 && ls *.so | sed -s s/lib//1 > ../../../mods51.list
-	@cd lib/$(TEC_UNAME)/Lua52 && ls *.so | sed -s s/lib//1 > ../../../mods52.list
-	@cd lib/$(TEC_UNAME)/Lua53 && ls *.so | sed -s s/lib//1 > ../../../mods53.list
+#	@cd lib/$(TEC_UNAME)/Lua51 && ls *.so | sed  s/lib//1 > ../../../mods51.list
+	@cd lib/$(TEC_UNAME)/Lua52 && ls *.so | sed  s/lib//1 > ../../../mods52.list
+	@cd lib/$(TEC_UNAME)/Lua53 && ls *.so | sed  s/lib//1 > ../../../mods53.list
 	@find bin/$(TEC_UNAME) -type f > apps.list
 	@find . -name "*.a" > slib.list
 	@echo $(TEC_UNAME) > tec_uname.txt

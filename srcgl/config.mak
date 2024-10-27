@@ -10,7 +10,7 @@ INCLUDES = ../include ../src
 LDIR = ../lib/$(TEC_UNAME)  
 LIBS = iup
 
-USE_OPENGL = Yes
+USE_OPENGL = YES
 SRC = iup_glcanvas.c
 
 ifneq ($(findstring Win, $(TEC_SYSNAME)), )

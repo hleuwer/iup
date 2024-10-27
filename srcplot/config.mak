@@ -3,7 +3,11 @@ LIBNAME  = iup_plot
 OPT = YES
 
 USE_CD = Yes
-USE_OPENGL = Yes
+ifneq ($(findstring MacOS, $(TEC_UNAME)), )
+  USE_OPENGL = Yes
+else
+  USE_OPENGL = Yes
+endif
 
 ifdef DBG
   DEFINES += IUP_ASSERT
@@ -19,6 +23,7 @@ DEF_FILE = iup_plot.def
 INCLUDES = ../include ../src ../srccd
 LDIR = ../lib/$(TEC_UNAME)  
 LIBS = iup iupgl iupcd cdgl 
+#LIBS = iup  iupcd cdgl 
 #LIBS = iup iupcd
 
 DEFINES = CD_NO_OLD_INTERFACE

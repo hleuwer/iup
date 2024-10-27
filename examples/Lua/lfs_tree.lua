@@ -90,7 +90,8 @@ function tree:branchopen_cb(id)
 end
 
 --Let's get started!
-dir_path="D:/scuri/Media/Outras"
+--dir_path="D:/scuri/Media/Outras"
+dir_path="/Users/leuwer"
 
 local dlg = iup.dialog{tree; title = "Photo Options"}
 iup.SetHandle("main", dlg)

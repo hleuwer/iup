@@ -1,5 +1,6 @@
 require 'iuplua'
-require "iuplua_pplot"
+--require "iuplua_pplot"
+require "iuplua_plot"
 
 iupxpplot = {}
 

@@ -17,7 +17,8 @@ build: tecmake
 # System Variables Definitions
 
 ifeq ($(TEC_SYSNAME), MacOS)
-   GTK_BASE=/opt/local
+#   GTK_BASE=/opt/local
+   GTK_BASE=/usr/local
    GTK_MAC=Yes
 endif
 
@@ -564,11 +565,11 @@ endif
 
 # Definitions for X11
 X11_LIBS := Xext X11
-#X11_LIB :=
-#X11_INC :=                     #include <X11/X.h>
+X11_LIB := /usr/local/lib
+X11_INC := /usr/local/include
 
 # Definitions for OpenGL
-OPENGL_LIBS := GLU GL
+#OPENGL_LIBS := GLU GL
 #OPENGL_LIB :=
 #OPENGL_INC :=                  #include <GL/gl.h>  and possibly
 MOTIFGL_LIB := GLw              #include <GL/GLwMDrawA.h>
@@ -589,8 +590,9 @@ ifneq ($(findstring MacOS, $(TEC_UNAME)), )
   #Fink
   #FREETYPE_INC := /sw/include/freetype2
   #MacPorts
-  FREETYPE_INC := /opt/local/include/freetype2
-  #FREETYPE_INC := /usr/local/include/freetype
+#  FREETYPE_INC := /opt/local/include/freetype2
+  FREETYPE_INC := /usr/local/include/freetype2
+#  FREETYPE_INC := /usr/local/include/freetype
 endif
 
 # Definitions for GTK
@@ -600,11 +602,11 @@ else
   ifneq ($(findstring MacOS, $(TEC_UNAME)), )
   # Prefer using GTK_BASE then changing this
   # Homebrew GTK port
-  #  GTK = /usr/local
+   GTK = /usr/local
   # Fink GTK port
   #  GTK = /sw
   # MacPorts GTK
-  GTK = /opt/local
+#   GTK = /opt/local
   # GTK-OSX Framework
   #   GTK := /gtk/inst
   else
@@ -753,25 +755,21 @@ ifneq ($(findstring SunOS, $(TEC_UNAME)), )
 endif
 
 ifneq ($(findstring MacOS, $(TEC_UNAME)), )
-  #Homebrew
-  #STDINCS += /usr/local/include
-  #LDIR += /usr/local/lib
-  #Fink
+  ## Homebrew
+  STDINCS += /usr/local/include
+  LDIR +=  /usr/X11R6/lib
+  WARNFLAGS += -Wno-incompatible-function-pointer-types
+  ## Fink
   #STDINCS += /sw/include
   #LDIR += /sw/lib
-  #Macports
-  STDINCS += /opt/local/include
-  LDIR += /opt/local/lib
-  # leu
-  STDINCS += /usr/local/include
-  LDIR += /usr/local/lib
+  ## Macports
+  #STDINCS += /opt/local/include
+  #LDIR += /opt/local/lib
   
   UNIX_BSD = Yes
   X11_LIBS := Xp Xext X11
-#  X11_LIB := /usr/X11R6/lib /usr/X11/lib
-#  X11_INC := /usr/X11R6/include /usr/X11/include
-  X11_LIB := /opt/X11/lib
-  X11_INC := /opt/X11/include
+  X11_LIB := /usr/X11R6/lib /usr/X11/lib
+  X11_INC := /usr/X11R6/include /usr/X11/include
   MOTIF_INC := /usr/OpenMotif/include
   MOTIF_LIB := /usr/OpenMotif/lib
   ifdef BUILD_DYLIB
@@ -782,11 +780,9 @@ ifneq ($(findstring MacOS, $(TEC_UNAME)), )
     STDLDFLAGS := -bundle -undefined dynamic_lookup
   endif
   ifdef USE_OPENGL
-#      LFLAGS = -framework OpenGL
-       LFLAGS = -L /opt/X11/lib
-#      LFLAGS = -L /opt/local/lib
-      OPENGL_LIBS := GL GLU
-    ifeq ($(TEC_SYSMINOR), 5)
+      LFLAGS = -framework OpenGL -framework GLUT
+      OPENGL_LIBS := GL GLUT
+  ifeq ($(TEC_SYSMINOR), 5)
       #Darwin9 Only - OpenGL bug fix for Fink, when the message bellow appears
       #   ld: cycle in dylib re-exports with /usr/X11R6/lib/libGL.dylib
       LFLAGS += -dylib_file /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib
